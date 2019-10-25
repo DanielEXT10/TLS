@@ -1,0 +1,22 @@
+{
+  "name": "TLS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.6",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.4",
+    "serialport": "^7.1.5",
+    "socket.io": "^2.3.0"
+  }
+}

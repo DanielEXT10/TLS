@@ -1,0 +1,98 @@
+<% include partials/header%>
+<div class="container" style="margin-top: 2rem;">
+    
+    
+    <div class="col-md-9">
+
+        <h2 style="text-align: center;">New Job Data</h2>
+
+        <form action="/add">
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Costumer:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Tool Type:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Tool Serial:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Description:</label>
+                <div class="col-sm-7">
+                    <textarea name="description" class="form-control" cols="50"
+                        placeholder="Insert a description"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Operator:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Control#:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Connection#:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Connection Type:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Thread Type:</label>
+                <div class="col-sm-7">
+                    <select id="inputState" class="form-control">
+                        <option selected>RH</option>
+                        <option>LH</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Operation:</label>
+                <div class="col-sm-7">
+                    <select id="inputState" class="form-control">
+                        <option selected>Make</option>
+                        <option>Break</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Target Torque:</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary " style="margin: 1rem 0;text-align: center;">Add Connection</button>
+            </div>
+
+
+
+        </form>
+    </div>
+
+</div>
+
+<% include partials/footer%>
