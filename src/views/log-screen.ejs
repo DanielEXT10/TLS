@@ -1,0 +1,31 @@
+<% include partials/header%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card" style="margin-top: 4rem;">
+            <h3 class="text-center">Make Torque</h3>
+            <h2 id="make_torque" class="display-2 text-center"></h2>
+            <h3 class="text-center">Break Torque</h3>
+            <h2 id="break_torque"  class="display-2 text-center" >0</h2>
+        </div>
+        </div>
+        <div class="col-md-7">
+                
+            </div>
+    </div>
+</div>
+
+
+<script src="/socket.io/socket.io.js" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+    const socket = io();
+    socket.on('torque', function(data){
+        console.log(data);
+        let make =document.getElementById('make_torque');
+        let b =document.getElementById('break_torque');
+        make.innerHTML = data;
+        b.innerHTML = data;
+       
+    });
+</script>
+<% include partials/footer%>

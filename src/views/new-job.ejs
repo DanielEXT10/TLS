@@ -8,25 +8,25 @@
 
         <form action="/add">
             <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Costumer:</label>
+                <label for="colFormLabel" class="col-sm-2 col-form-label" >Costumer:</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control">
+                    <input type="text" name="costumer" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Tool Type:</label>
+                <label for="colFormLabel" class="col-sm-2 col-form-label" >Tool Type:</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control">
+                    <input name="toolType" type="text" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Tool Serial:</label>
+                <label for="colFormLabel" class="col-sm-2 col-form-label" >Tool Serial:</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control">
+                    <input type="text" name="serial" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Description:</label>
+                <label for="colFormLabel" class="col-sm-2 col-form-label" >Description:</label>
                 <div class="col-sm-7">
                     <textarea name="description" class="form-control" cols="50"
                         placeholder="Insert a description"></textarea>
@@ -36,32 +36,32 @@
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Operator:</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control">
+                    <input type="text" name="operator" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Control#:</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control">
+                    <input type="text" name="control#"class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Connection#:</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control">
+                    <input type="text" name="connection#" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Connection Type:</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control">
+                    <input type="text" name="connectionType" class="form-control">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Thread Type:</label>
                 <div class="col-sm-7">
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" name="threadType">
                         <option selected>RH</option>
                         <option>LH</option>
                     </select>
@@ -71,7 +71,7 @@
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Operation:</label>
                 <div class="col-sm-7">
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" name="operation">
                         <option selected>Make</option>
                         <option>Break</option>
                     </select>
@@ -81,11 +81,11 @@
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Target Torque:</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control">
+                    <input type="text" name="targetTorque" class="form-control">
                 </div>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary " style="margin: 1rem 0;text-align: center;">Add Connection</button>
+                <button type="submit" class="btn btn-primary btn-block" style="margin: 1rem 0;text-align: center;">Add Connection</button>
             </div>
 
 
