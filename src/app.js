@@ -29,7 +29,6 @@ parser.on('open', function(){
 });
 
 parser.on('data', function(data)  {
-    console.log(data);
     io.emit('torque', data); //transmitimos la misma info que recibimos del puerto serie
 });
 
@@ -38,7 +37,9 @@ port.on('error',function(){
 });
 
 //connecting database
-
+mongoose.connect('mongodb://localhost/torque_machine')
+.then(db => console.log('db connected'))
+.catch(err => console.log (err));
 
 //importing routes
 const indexRoutes = require('./routes/index');

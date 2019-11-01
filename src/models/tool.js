@@ -15,9 +15,10 @@ const toolSchema = new Schema({
 
     tool_serial:String,
     tool_type:String,
-    costumer: String,
+    file_code:String,
+    customer: String,
     operator: String,
-    created_at: Date,
+    created_at: { type: Date, default: Date.now },
     connections:[connectionSchema]
 });
 
