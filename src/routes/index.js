@@ -13,11 +13,17 @@ router.post('/add', async (req,res)=>{
     const tool = new Tool(req.body);
     await tool.save();
     console.log(tool);
+    res.render('new-connection', {
+        tool
+    });
   
 });
-router.get('/add',(req,res)=>{
-    res.render('new-connection');
+router.post('/add_connection', (req, res)=>{
+    
 });
+//router.get('/add',(req,res)=>{
+  //  res.render('new-connection');
+//});
 router.get('/', (req,res)=>{
     res.render('index');
 
@@ -33,4 +39,20 @@ router.get('/log-screen', (req,res) => {
 router.get('/new-job/', (req,res)=>{
     res.render('new-job');
 });
+router.get('/review', async(req,res)=>{
+    const tools = await Tool.find();
+    res.render('review-job',{
+        tools
+    });
+});
+router.get('/delete/:id', async (req,res)=>{
+    const {id} = req.params;
+    await Tool.remove({_id: id});
+    res.redirect('/review');
+});
+
+router.get('/edit/:id', async (req,res) =>{
+    const { id}  = req.params;
+    const tool = await Tool.findById(id);
+})
 module.exports = router;
