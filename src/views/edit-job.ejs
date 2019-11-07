@@ -1,0 +1,41 @@
+<% include partials/header%>
+<div class="container" style="margin-top: 2rem;  ">
+        <div class="row">
+    
+            <div class="col-md-6">
+                <div class="card">
+    
+    
+                    <form action="/update/<%=tool._id %>" method="POST" style="margin: 2rem; margin-bottom: 1rem;">
+                        <h2 style="text-align: center;">Job Data</h2>
+                        <div class="form-group">
+                            <label for="">Customer:</label>
+                            <input type="text" name="customer" class="form-control" value="<%=tool.customer%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tool Type:</label>
+                            <input type="text" name="tool_type" class="form-control" value="<%=tool.tool_type%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="">File Code:</label>
+                            <input type="text" name="file_code" class="form-control" value="<%=tool.file_code%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Tool Serial:</label>
+                            <input type="text" name="tool_serial" class="form-control" value="<%=tool.tool_serial%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Operator:</label>
+                            <input type="text" name="operator" class="form-control" value="<%=tool.operator%>">
+                        </div>
+    
+    
+    
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-block"> Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+<% include partials/footer%>
