@@ -21,8 +21,12 @@ router.post('/add', async (req,res)=>{
 
 router.post('/add_connection/:id',async (req,res)=>{
     const {id} = req.params;
-    await Tool.connections.push({req.body});
-    res.redirect('/add');
+    const tool = await Tool.findById(id);
+    await Tool.updateOne({_id:id},{$push: {connections:{"description":req.body.description, "connection_number":req.body.connection_number, "thread_type": req.body.thread_type, "operation": req.body.operation, "target_torque":req.body.target_torque}}});
+    res.render('new-connection',{
+        tool
+    });
+   console.log(tool.connections.length);
 
 });
 
@@ -32,7 +36,7 @@ router.post('/update/:id', async (req, res) => {
     res.redirect('/review');
 });
 
-router.get('/', (req,res)=>{
+router.get('/', (req,res) => {
     res.render('index');
 
 });
