@@ -26,7 +26,7 @@ router.post('/add_connection/:id',async (req,res)=>{
     res.render('new-connection',{
         tool
     });
-   console.log(tool.connections.length);
+   console.log(tool.connections);
 
 });
 
