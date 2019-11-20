@@ -4,11 +4,7 @@ const mongoose = require('mongoose');
 const Tool = require('../models/tool');
 
 
-//router.post('/add_connection', async (req,res)=>{
-  //  const tool= new tool.connection.push(req.body);
-    //await tool.save();
-    //res.redirect('/add_connection'); 
-//});
+
 router.post('/add', async (req,res)=>{
     const tool = new Tool(req.body);
     await tool.save();
