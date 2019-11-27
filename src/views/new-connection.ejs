@@ -61,25 +61,9 @@
         </div>
 
         <div class="col-md-6">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>Connection</th>
-                        <th>Description</th>
-                        <th>Target torque</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                <%for(var i = 0; i < tool.connections.length; i++){%>
-                    <tr>
-                   <td><%=tool.connections[i].description %></td>
-                   <td><%=tool.connections[i].operation%></td>
-                   <td><%=tool.connections[i].target_torque %></td>
-                </tr>
-                <%}%>
-                </tbody>
-            </table>
+            <a href="" class="btn btn-primary">Start Logging </a>
+            <a href="/view-connections/<%=tool._id%>" class="btn btn-primary">View Connections</a>
+            
         </div>
 
     </div>
