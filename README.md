@@ -10,3 +10,8 @@ Developed using web technologies, TLS takes data from a high hydraulic pressure 
 This section shows the torque measured by the sensors in real time and displays a graphic of the torque applied through the whole process.
 
 ![alt text](https://github.com/DanielEXT10/TLS/blob/master/TLS/log%20screen2.PNG)
+
+## New Job
+Use this form to add data for a new torque logging process
+![new job form](https://github.com/DanielEXT10/TLS/blob/master/new-job.PNG)
+![new connection form](https://github.com/DanielEXT10/TLS/blob/master/new-connection.PNG)
