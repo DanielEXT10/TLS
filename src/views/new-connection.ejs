@@ -1,12 +1,13 @@
 <% include partials/header%>
 <div class="container" style="margin-top: 2rem;  ">
-    <div class="row" style="display: flex; justify-content: space-between;">
-        
-            <h5>Customer: <%=tool.customer%></h5>
-            <h5>Tool Type:<%=tool.tool_type%></h5>
-            <h5>FC: <%=tool.file_code%></h5>
-            <h5>Serial: <%=tool.tool_serial%></h5>
-        
+        <h2 style="text-align: center;">Job Data</h2>
+    <div style="display: flex; flex-flow: wrap; justify-content: space-between" >
+            
+            <h5>Customer: <%=tool.customer%></h5> <br>
+            <h5>Tool Type: <%=tool.tool_type%></h5><br>
+            <h5>FC: <%=tool.file_code%></h5><br>
+            <h5>Serial: <%=tool.tool_serial%></h5><br>
+       
 
 
     </div>
@@ -21,15 +22,15 @@
                     <h2 style="text-align: center;">New Connection Data</h2>
                     <div class="form-group">
                         <label for="">Description:</label>
-                        <input type="text" name="description" class="form-control">
+                        <input type="text" name="description" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="">Connection #:</label>
-                        <input type="text" name="connection_number" class="form-control">
+                        <input type="text" name="connection_number" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for=""> Connection Type:</label>
-                        <input type="text" name="connection_type" class="form-control">
+                        <input type="text" name="connection_type" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Thread Type:</label>
@@ -50,7 +51,7 @@
 
                     <div class="form-group">
                         <label for="">Target Torque:</label>
-                        <input type="text" name="target_torque" class="form-control">
+                        <input type="text" name="target_torque" class="form-control" required> 
                     </div>
                     <div>
                             <button type="submit" class="btn btn-primary btn-block"> Add Connection</button>
@@ -60,9 +61,10 @@
             </div>
         </div>
 
-        <div class="col-md-6">
-            <a href="" class="btn btn-primary">Start Logging </a>
-            <a href="/view-connections/<%=tool._id%>" class="btn btn-primary">View Connections</a>
+        <div class="col-md-6" style="display: flex; flex-direction: column; align-content: center;margin-top: 2rem;" >
+                <a href="/view-connections/<%=tool._id%>" class="btn btn-primary" style="padding: 2rem;  margin:0.5rem; font-size: 2rem;"> View Connections</a>
+            <a href="" class="btn btn-primary" style="padding: 2rem; margin:0.5rem; font-size: 2rem;">Start Logging </a>
+            
             
         </div>
 

@@ -5,6 +5,8 @@
         <thead>
             <tr>
                 <th>Description</th>
+                <th>Thread Type</th>
+                
                 <th>Operation</th>
                 <th>Target torque</th>
             </tr>
@@ -14,6 +16,7 @@
         <%for(var i = 0; i < tool.connections.length; i++){%>
             <tr>
            <td><%=tool.connections[i].description %></td>
+           <td><%=tool.connections[i].thread_type %></td>
            <td><%=tool.connections[i].operation%></td>
            <td><%=tool.connections[i].target_torque %></td>
         </tr>

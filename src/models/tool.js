@@ -9,7 +9,11 @@ const connectionSchema= new Schema({
         thread_type: String,
         operation: String,
         target_torque: Number,
-        measured_torque:Number
+        measured_torque:Number,
+        connection_status:{
+            type: Boolean,
+            default: false
+        }
 });
 const toolSchema = new Schema({
 
@@ -19,7 +23,11 @@ const toolSchema = new Schema({
     customer: String,
     operator: String,
     created_at: { type: Date, default: Date.now },
-    connections:[connectionSchema]
+    connections:[connectionSchema],
+    tool_status: {
+        type: Boolean,
+        default: false
+    }
 });
 
 module.exports = mongoose.model('tool', toolSchema);
