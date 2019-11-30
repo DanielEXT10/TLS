@@ -1,0 +1,32 @@
+<% include partials/header%>
+
+<div class="col-md-6">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Thread Type</th>
+                
+                <th>Operation</th>
+                <th>Target torque</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+        <%for(var i = 0; i < tool.connections.length; i++){%>
+            <tr>
+           <td><%=tool.connections[i].description %></td>
+           <td><%=tool.connections[i].thread_type %></td>
+           <td><%=tool.connections[i].operation%></td>
+           <td><%=tool.connections[i].target_torque %></td>
+        </tr>
+        <%}%>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-6">
+    <a class="btn btn-primary" href="javascript:history.back()"> Volver Atrás</a>
+</div>
+
+<% include partials/footer%>

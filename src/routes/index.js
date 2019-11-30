@@ -4,11 +4,7 @@ const mongoose = require('mongoose');
 const Tool = require('../models/tool');
 
 
-//router.post('/add_connection', async (req,res)=>{
-  //  const tool= new tool.connection.push(req.body);
-    //await tool.save();
-    //res.redirect('/add_connection'); 
-//});
+
 router.post('/add', async (req,res)=>{
     const tool = new Tool(req.body);
     await tool.save();
@@ -18,7 +14,7 @@ router.post('/add', async (req,res)=>{
     });
   
 });
-
+router.get('/add_connection/:id')
 router.post('/add_connection/:id',async (req,res)=>{
     const {id} = req.params;
     const tool = await Tool.findById(id);
@@ -69,5 +65,14 @@ router.get('/edit/:id', async (req,res) =>{
     res.render('edit-job',{
         tool
     });
+});
+
+router.get('/view-connections/:id', async (req,res)=>{
+    const {id} = req.params;
+    const tool = await Tool.findById(id);
+    res.render('job-connections',{
+        tool
+    });
+
 });
 module.exports = router;
