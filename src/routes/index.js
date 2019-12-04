@@ -75,4 +75,12 @@ router.get('/view-connections/:id', async (req,res)=>{
     });
 
 });
+
+router.get('/log-connection/:id', async (req,res)=>{
+    const {id} = req.params;
+    const connection = await Tool.connection.id(id);
+    res.render('log-connection', {
+        connection
+    });
+})
 module.exports = router;

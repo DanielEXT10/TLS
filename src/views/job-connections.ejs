@@ -1,32 +1,40 @@
 <% include partials/header%>
-
+<script src="https://kit.fontawesome.com/2c5fa142ad.js" crossorigin="anonymous"></script>
 <div class="col-md-6">
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Description</th>
                 <th>Thread Type</th>
-                
+
                 <th>Operation</th>
                 <th>Target torque</th>
+                <th>Actions</th>
             </tr>
         </thead>
-        
+
         <tbody>
-        <%for(var i = 0; i < tool.connections.length; i++){%>
+            <%for(var i = 0; i < tool.connections.length; i++){%>
             <tr>
-           <td><%=tool.connections[i].description %></td>
-           <td><%=tool.connections[i].thread_type %></td>
-           <td><%=tool.connections[i].operation%></td>
-           <td><%=tool.connections[i].target_torque %></td>
-        </tr>
-        <%}%>
+                <td><%=tool.connections[i].description %></td>
+                <td><%=tool.connections[i].thread_type %></td>
+                <td><%=tool.connections[i].operation%></td>
+                <td><%=tool.connections[i].target_torque %></td>
+                <td style="text-align-last: center;">
+                    <a href="/edit-connection/<%= tool.connections[i]._id%>"><i class="far fa-edit"></i></a>
+                    <a style="margin-left:20px; color: indianred;" href="/delete-connection/<%= tool.connections[i]._id%>"><i class="far fa-trash-alt"></i></a>
+                    <a style="margin-left:20px; color: black;" href="/log-connection/<%= tool.connections[i]._id%>"><i class="fas fa-wrench"></i></a>
+
+                </td>
+
+            </tr>
+            <%}%>
         </tbody>
     </table>
 </div>
 
 <div class="col-md-6">
-    <a class="btn btn-primary" href="javascript:history.back()"> Volver Atrás</a>
+    <a class="btn btn-primary" href="javascript:history.back()"> Back</a>
 </div>
 
 <% include partials/footer%>

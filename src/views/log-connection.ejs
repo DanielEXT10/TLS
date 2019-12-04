@@ -1,0 +1,89 @@
+<% include partials/header%>
+
+<div class="container">
+    <div class="row">
+        <h5>Description: <%=tool.connections.description%> </h5>
+        <h5>Thread Type: <%=tool.connections.thread_type %> </h5>
+        <h5>Operation: <%=tool.connections.operation%></h5>
+        <h5>Target Torque: <%=tool.connections.target_torque %></h5>
+        <h5></h5>
+
+    </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card" style="margin-top: 4rem;">
+                    <h3 class="text-center">Make Torque</h3>
+                    <h2 id="make_torque" class="display-2 text-center"></h2>
+                    <h3 class="text-center">Break Torque</h3>
+                    <h2 id="break_torque" class="display-2 text-center">0</h2>
+                </div>
+            </div>
+            <div class="col-md-7">
+    
+                <div class="chart-container" style="margin: 0 auto;
+                    position: relative;
+                    height:700px; 
+                    width:600px;margin-top: 4rem;">
+                    <canvas id="myCanvas"> </canvas>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        const socket = io();
+        let counter = 0;
+    
+        socket.on('torque', function (data) {
+            console.log(data);
+            let make = document.getElementById('make_torque');
+            let b = document.getElementById('break_torque');
+            make.innerHTML = data;
+            b.innerHTML = data;
+    
+            myChart.data.labels.push(counter);
+            myChart.data.datasets.forEach(dataset => {
+                dataset.data.push(data);
+            });
+            counter++;
+            myChart.update();
+        });
+    
+        var ctx = document.getElementById('myCanvas').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["Voltage"],
+                datasets: [{
+                    label: "Voltage",
+    
+                    borderColor: 'rgb(41,128,185)',
+                    data: []
+                }]
+            },
+            options: {
+                responsive: true,
+                elements: {
+                    point: {
+                        radius: 0
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            max: 1200,
+                            min: 0,
+                            step: 0.5
+                        }
+                    }],
+    
+                }
+            }
+        });
+    </script>
+
+<% include partials/footer%>

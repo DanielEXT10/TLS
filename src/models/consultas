@@ -1,0 +1,5 @@
+// Busca un document a partir de un subdocument
+db.tools.find({connections:{$elemMatch: {_id: ObjectId("5de19f11ef637e557077a984")}}})
+
+//modificamos un subdocument
+db.tools.updateOne({tool_serial: "5768", "connections.connection_number":2},{$set: {"connections.$.measured_torque": 6253}})
