@@ -14,7 +14,7 @@ router.post('/add', async (req,res)=>{
     });
   
 });
-router.get('/add_connection/:id')
+
 router.post('/add_connection/:id',async (req,res)=>{
     const {id} = req.params;
     const tool = await Tool.findById(id);
@@ -78,9 +78,12 @@ router.get('/view-connections/:id', async (req,res)=>{
 
 router.get('/log-connection/:id', async (req,res)=>{
     const {id} = req.params;
-    const connection = await Tool.connection.id(id);
+    const tool = await Tool.find({"connections._id": id},{connections:{$elemMatch: {_id: id}}});
     res.render('log-connection', {
-        connection
-    });
-})
+        tool
+        });
+    console.log(tool.connections);
+});
+
+
 module.exports = router;

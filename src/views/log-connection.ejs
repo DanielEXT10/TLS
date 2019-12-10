@@ -1,11 +1,12 @@
 <% include partials/header%>
-
+<pre>
+    <%=tool%>
+</pre>
 <div class="container">
     <div class="row">
-        <h5>Description: <%=tool.connections.description%> </h5>
-        <h5>Thread Type: <%=tool.connections.thread_type %> </h5>
-        <h5>Operation: <%=tool.connections.operation%></h5>
-        <h5>Target Torque: <%=tool.connections.target_torque %></h5>
+       
+        <h5>log connection</h5>
+        
         <h5></h5>
 
     </div>
@@ -41,6 +42,7 @@
             console.log(data);
             let make = document.getElementById('make_torque');
             let b = document.getElementById('break_torque');
+            let max_torque = 0;
             make.innerHTML = data;
             b.innerHTML = data;
     

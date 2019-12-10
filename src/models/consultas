@@ -3,3 +3,6 @@ db.tools.find({connections:{$elemMatch: {_id: ObjectId("5de19f11ef637e557077a984
 
 //modificamos un subdocument
 db.tools.updateOne({tool_serial: "5768", "connections.connection_number":2},{$set: {"connections.$.measured_torque": 6253}})
+
+//filtramos un arreglo de subdocumentos by ID 
+db.tools.find({"connections._id":ObjectId("5de6e69ab3eb146144c7f4e2")},{connections:{$elemMatch:{_id:ObjectId("5de6e69ab3eb146144c7f4e2")}}})
