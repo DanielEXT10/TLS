@@ -10,6 +10,7 @@
 
                 <th>Operation</th>
                 <th>Target torque</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,6 +22,7 @@
                 <td><%=tool.connections[i].thread_type %></td>
                 <td><%=tool.connections[i].operation%></td>
                 <td><%=tool.connections[i].target_torque %></td>
+                
                 <td style="text-align-last: center;">
                     <a href="/edit-connection/<%= tool.connections[i]._id%>"><i class="far fa-edit"></i></a>
                     <a style="margin-left:20px; color: indianred;" href="/delete-connection/<%= tool.connections[i]._id%>"><i class="far fa-trash-alt"></i></a>

@@ -1,48 +1,51 @@
 <% include partials/header%>
 
 <div class="container">
-        <h3 style="text-align: center; margin-bottom: 2rem;">Logging mode</h3>
+    <h3 style="text-align: center; margin-bottom: 2rem;">Logging mode</h3>
     <div class="row">
 
-        
+        <div class="col-md-7" style="display: flex;  justify-content: space-between; ">
 
-        <div class="col-md-7" style="display: flex;  justify-content: space-between" >
-
-            <h6 >Description: <%=tool[0].connections[0].description%>  </h6><br>
-            <h6>Thread Type: <%=tool[0].connections[0].thread_type%>  </h6><br>
-           
+            <h6>Description: <%=tool[0].connections[0].description%> </h6><br>
+            <h6>Thread Type: <%=tool[0].connections[0].thread_type%> </h6><br>
 
         </div>
-        <div class="col-md-5" style="display: flex;  justify-content: space-between" >
-
-              
-                <h6>Operation: <%=tool[0].connections[0].operation%>  </h6><br>
-                <h6>Target Torque: <%=tool[0].connections[0].target_torque%> </h6><br>
-    
-            </div>
+        <div class="col-md-5" style="display: flex;  justify-content: space-between; ">
 
 
+            <h6>Operation: <%=tool[0].connections[0].operation%> </h6><br>
+            <h6>Target Torque: <%=tool[0].connections[0].target_torque%> </h6><br>
 
+        </div>
 
     </div>
     <div class="row">
-        <div class="col-md-5">
-            <div class="card" style="margin-top: 4rem;">
-                <h3 class="text-center">Make Torque</h3>
-                <h2 id="make_torque" class="display-2 text-center"></h2>
-                <h3 class="text-center">Break Torque</h3>
-                <h2 id="break_torque" class="display-2 text-center">0</h2>
-            </div>
-        </div>
-        <div class="col-md-7">
+
+
+        <div class="col-md-7" style="max-height: 480px;">
 
             <div class="chart-container" style="margin: 0 auto;
                     position: relative;
-                    height:700px; 
-                    width:600px;margin-top: 4rem;">
+                    height:480px; 
+                    width:400px;margin-top: 0;">
                 <canvas id="myCanvas"> </canvas>
             </div>
 
+        </div>
+        <div class="col-md-5" style="margin-top:0; margin-bottom: 2rem; max-height: 480px;">
+            <div class="card" style="margin-top: 0rem; border-radius: 10px;">
+                <div class="card-body">
+                    <h6>Max Torque</h6>
+                    <h6 id="max-torque"></h6>
+                    <h5 class="text-center">Measured Torque</h5>
+                    <h4 id="measured-torque" class=" text-center"></h4>
+                </div>
+
+            </div>
+            <div style="margin-top: 2rem;">
+                <a href="javascript:history.back()" class="btn btn-primary btn-block">Back</a>
+                <a href="/save-torque/ <%=tool[0].connections[0]._id%>/ max_torque" class="btn btn-primary btn-block">Stop Logging</a>
+            </div>
         </div>
     </div>
 </div>
@@ -52,14 +55,27 @@
 <script type="text/javascript" charset="utf-8">
     const socket = io();
     let counter = 0;
+    let max_torque = 0;
+    let mtorque = 0;
 
     socket.on('torque', function (data) {
         console.log(data);
-        let make = document.getElementById('make_torque');
-        let b = document.getElementById('break_torque');
-        let max_torque = 0;
-        make.innerHTML = data;
-        b.innerHTML = data;
+        mtorque = data;
+
+
+        if (mtorque > max_torque) {
+            max_torque = mtorque;
+        }
+        else {
+            max_torque = max_torque;
+        }
+
+        let measured = document.getElementById('measured-torque');
+        let max = document.getElementById('max-torque');
+
+
+        max.innerHTML = max_torque;
+        measured.innerHTML = mtorque;
 
         myChart.data.labels.push(counter);
         myChart.data.datasets.forEach(dataset => {
@@ -100,6 +116,7 @@
 
             }
         }
+
     });
 </script>
 

@@ -32,13 +32,17 @@
     
                         
                         <div>
-                            <a class="btn btn-primary btn-block" href="/view-connections/<%=tool._id %>">View Connections</a>
-                            <button type="submit" class="btn btn-primary btn-block"> Save</button>
+                           
+                            <button type="submit" class="btn btn-primary btn-block" style="font-size: 1.2rem;"> Save</button>
                         </div>
 
 
                     </form>
                 </div>
+            </div>
+            <div style="display: flex; align-items: center; flex-direction: column; justify-content: center;" class="col-md-5">
+                    <a class="btn btn-primary btn-block " href="/view-connections/<%=tool._id %>" style="padding:20px;font-size:1.8rem; margin-left: 2rem;">View Connections</a>
+                    <a class="btn btn-primary btn-block" href="javascript:history.back()" style="padding:20px;font-size:1.8rem;  margin-left: 2rem;">Back</a>
             </div>
         </div>
 <% include partials/footer%>

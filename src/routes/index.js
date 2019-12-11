@@ -85,5 +85,11 @@ router.get('/log-connection/:id', async (req,res)=>{
     console.log(tool.connections);
 });
 
+router.post('save-toruqe/:id/:max_torque',(req,res)=>{
+
+    res.send(req.params);
+
+}); 
+
 
 module.exports = router;
