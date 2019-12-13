@@ -85,9 +85,15 @@ router.get('/log-connection/:id', async (req,res)=>{
     console.log(tool.connections);
 });
 
-router.post('save-toruqe/:id/:max_torque',(req,res)=>{
-
-    res.send(req.params);
+router.post('/api',(req,res)=>{
+    console.log('I got a request');
+    console.log(req.body);
+    const d = req.body
+    res.json({
+        status: 'success',
+        latitude: d.max_torque,
+        
+    });
 
 }); 
 

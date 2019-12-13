@@ -53,6 +53,7 @@ app.set('view engine', 'ejs');
 //middlewares
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));//form to JSON object
+app.use(express.json({ limit: '1mb'}));
 
 
 

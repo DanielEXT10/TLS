@@ -44,7 +44,8 @@
             </div>
             <div style="margin-top: 2rem;">
                 <a href="javascript:history.back()" class="btn btn-primary btn-block">Back</a>
-                <a href="/save-torque/ <%=tool[0].connections[0]._id%>/ max_torque" class="btn btn-primary btn-block">Stop Logging</a>
+                
+                    <button class="btn btn-primary btn-block" onclick="updateTorque()">Stop Logging</a></button>
             </div>
         </div>
     </div>
@@ -58,8 +59,10 @@
     let max_torque = 0;
     let mtorque = 0;
 
+    
+
     socket.on('torque', function (data) {
-        console.log(data);
+        
         mtorque = data;
 
 
@@ -72,8 +75,6 @@
 
         let measured = document.getElementById('measured-torque');
         let max = document.getElementById('max-torque');
-
-
         max.innerHTML = max_torque;
         measured.innerHTML = mtorque;
 
@@ -83,7 +84,29 @@
         });
         counter++;
         myChart.update();
+
+        
+        
     });
+
+    async function updateTorque(){
+        const torque_data = { mtorque, max_torque };
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(torque_data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        try{
+          const res = await fetch('/api', options);  
+          console.log(torque_data);
+        } catch(err){
+            console.log(err);
+        }
+       
+        
+    }
 
     var ctx = document.getElementById('myCanvas').getContext('2d');
     var myChart = new Chart(ctx, {
