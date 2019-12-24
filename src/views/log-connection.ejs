@@ -1,11 +1,13 @@
 <% include partials/header%>
 
+    
+
 <div class="container">
     <h3 style="text-align: center; margin-bottom: 2rem;">Logging mode</h3>
     <div class="row">
 
         <div class="col-md-7" style="display: flex;  justify-content: space-between; ">
-
+            
             <h6>Description: <%=tool[0].connections[0].description%> </h6><br>
             <h6>Thread Type: <%=tool[0].connections[0].thread_type%> </h6><br>
 
@@ -53,12 +55,17 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+
 <script type="text/javascript" charset="utf-8">
     const socket = io();
     let counter = 0;
     let max_torque = 0;
     let mtorque = 0;
+    let tool_id= "<%=tool[0]._id%>"
+    let connection_id= '<%=tool[0].connections[0].id%>'
+    
 
+    
     
 
     socket.on('torque', function (data) {
@@ -90,7 +97,8 @@
     });
 
     async function updateTorque(){
-        const torque_data = { mtorque, max_torque };
+        
+        const torque_data = {tool_id,connection_id, max_torque };
         const options = {
             method: 'POST',
             body: JSON.stringify(torque_data),

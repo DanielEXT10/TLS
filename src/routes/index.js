@@ -70,6 +70,7 @@ router.get('/edit/:id', async (req,res) =>{
 router.get('/view-connections/:id', async (req,res)=>{
     const {id} = req.params;
     const tool = await Tool.findById(id);
+    
     res.render('job-connections',{
         tool
     });
@@ -79,16 +80,20 @@ router.get('/view-connections/:id', async (req,res)=>{
 router.get('/log-connection/:id', async (req,res)=>{
     const {id} = req.params;
     const tool = await Tool.find({"connections._id": id},{connections:{$elemMatch: {_id: id}}});
+    console.log(tool);
     res.render('log-connection', {
         tool
         });
-    console.log(tool.connections);
+    
 });
 
-router.post('/api',(req,res)=>{
+router.post('/api', async (req,res)=>{
     console.log('I got a request');
     console.log(req.body);
     const d = req.body
+    await Tool.updateOne({_id: d.tool_id, "connections._id":d.connection_id},{$set: {"connections.$.measured_torque": d.max_torque}})
+
+
     res.json({
         status: 'success',
         latitude: d.max_torque,
