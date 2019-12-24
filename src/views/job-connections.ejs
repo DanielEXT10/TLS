@@ -1,7 +1,7 @@
 <% include partials/header%>
 <script src="https://kit.fontawesome.com/2c5fa142ad.js" crossorigin="anonymous"></script>
 <div class="container mt-5 ">
-<div class="col-md-8">
+<div class="col-md-10">
     <table class="table table-bordered table-hover ">
         <thead>
             <tr>
@@ -10,7 +10,7 @@
 
                 <th>Operation</th>
                 <th>Target torque</th>
-                <th>Status</th>
+                <th>Measured torque</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,6 +22,7 @@
                 <td><%=tool.connections[i].thread_type %></td>
                 <td><%=tool.connections[i].operation%></td>
                 <td><%=tool.connections[i].target_torque %></td>
+                <td><%=tool.connections[i].measured_torque%></td>
                 
                 <td style="text-align-last: center;">
                     <a href="/edit-connection/<%= tool.connections[i]._id%>"><i class="far fa-edit"></i></a>

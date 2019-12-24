@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const Tool = require('../models/tool');
 
 
@@ -91,7 +90,7 @@ router.post('/api', async (req,res)=>{
     console.log('I got a request');
     console.log(req.body);
     const d = req.body
-    await Tool.updateOne({_id: d.tool_id, "connections._id":d.connection_id},{$set: {"connections.$.measured_torque": d.max_torque}})
+    await Tool.updateOne({_id: d.tool_id, "connections._id":d.connection_id},{$set: {"connections.$.measured_torque": d.max_torque, "connections.$.connection_status":true}})
 
 
     res.json({
