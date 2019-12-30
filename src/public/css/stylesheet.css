@@ -1,0 +1,14 @@
+.logo{
+ max-width: 200px;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;   
+    align-items: left;
+
+}
+
+h2{
+    text-align: center;
+}

@@ -52,6 +52,15 @@ router.get('/review', async(req,res)=>{
         tools
     });
 });
+
+router.get('/print/:id', async (req,res)=>{
+
+    const {id} = req.params;
+    const tool = await Tool.findById(id);
+    res.render('print-job',{
+        tool
+    });
+});
 router.get('/delete/:id', async (req,res)=>{
     const {id} = req.params;
     await Tool.remove({_id: id});

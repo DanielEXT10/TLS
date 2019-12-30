@@ -56,6 +56,9 @@ app.use(express.urlencoded({extended: false}));//form to JSON object
 app.use(express.json({ limit: '1mb'}));
 
 
+app.use('/public',express.static(__dirname + '/public'));
+
+
 
 //routes
 app.use('/', indexRoutes);
