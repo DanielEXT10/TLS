@@ -12,3 +12,8 @@
 h2{
     text-align: center;
 }
+
+.connections{
+    display: flex;
+    
+}

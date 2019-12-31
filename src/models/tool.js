@@ -13,7 +13,8 @@ const connectionSchema= new Schema({
         connection_status:{
             type: Boolean,
             default: false
-        }
+        },
+        serviced_on:{ type: Date}
 });
 const toolSchema = new Schema({
 

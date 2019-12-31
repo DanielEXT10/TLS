@@ -16,8 +16,35 @@
         <div> <img class="logo" src="../public/img/Schlumberger-Logo.png" alt="logo"></div>
         
         <div><h2>Torque Report</h2></div>
+
         
     </div>
+    <div class="report">
+    <div class="data-job">
+        <h5>Customer: <%=tool.customer%></h5> <br>
+        <h5>Tool Type: <%=tool.tool_type%></h5><br>
+        <h5>FC: <%=tool.file_code%></h5><br>
+        <h5>Serial: <%=tool.tool_serial%></h5><br>
+    </div>
+<div class="connections">
+    <% for(var i = 0; i < tool.connections.length; i++){ %>
+        <div class="connection card">
+            <div class="card-body">
+                <p>Connection #: <%=tool.connections[i].connection_number %></p>
+                <p>Description: <%=tool.connections[i].description %></p>
+                <p>Thread type: <%=tool.connections[i].thread_type %></p>
+               <p>Operation: <%=tool.connections[i].operation%></p> 
+               <p>Target torque: <%=tool.connections[i].target_torque %></p> 
+               <p>Measured torque: <%=tool.connections[i].measured_torque%></p> 
+            </div>
+            
+        </div>
+        <%}%>
+</div>
+
+</div>
+
+
     
    
 </body>
