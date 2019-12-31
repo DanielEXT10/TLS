@@ -15,5 +15,10 @@ h2{
 
 .connections{
     display: flex;
-    
+    flex-wrap: wrap;
+}
+
+.connection{
+    flex: 1 0 33%;
+    max-width: 250px;
 }
