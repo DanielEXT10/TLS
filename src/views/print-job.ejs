@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Print Job</title>
     <link rel="stylesheet" href="../public/css/stylesheet.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-    <header class="navbar navbar-dark bg-dark" >
-        <h3 style="color:ghostwhite"><a href="/" style="text-decoration: none;color: ghostwhite;">Torque Logging System</a> </h3>
-    </header>
-    <div class="title"> 
-        <div> <img class="logo" src="../public/img/Schlumberger-Logo.png" alt="logo"></div>
-        
-        <div><h2>Torque Report</h2></div>
 
-        
+<body>
+    <header class="navbar navbar-dark bg-dark">
+        <h3 style="color:ghostwhite"><a href="/" style="text-decoration: none;color: ghostwhite;">Torque Logging
+                System</a> </h3>
+    </header>
+    <div class="title">
+        <div> <img class="logo" src="../public/img/Schlumberger-Logo.png" alt="logo"></div>
+
+        <div>
+            <h2>Torque Report</h2>
+        </div>
+
+
     </div>
     <div class="report">
-    <div class="data-job">
-        <h5>Customer: <%=tool.customer%></h5> <br>
-        <h5>Tool Type: <%=tool.tool_type%></h5><br>
-        <h5>FC: <%=tool.file_code%></h5><br>
-        <h5>Serial: <%=tool.tool_serial%></h5><br>
-    </div>
-<div class="connections">
-    <% for(var i = 0; i < tool.connections.length; i++){ %>
-        <div class="connection card">
-            <div class="card-body">
-                <p>Connection #: <%=tool.connections[i].connection_number %></p>
-                <p>Description: <%=tool.connections[i].description %></p>
-                <p>Thread type: <%=tool.connections[i].thread_type %></p>
-               <p>Operation: <%=tool.connections[i].operation%></p> 
-               <p>Target torque: <%=tool.connections[i].target_torque %></p> 
-               <p>Measured torque: <%=tool.connections[i].measured_torque%></p> 
-               <p>Service on: <%=tool.connections[i].serviced_on%> </p>
-            </div>
-            
+        <div class="data-job">
+            <h5>Customer: <%=tool.customer%></h5> <br>
+            <h5>Tool Type: <%=tool.tool_type%></h5><br>
+            <h5>FC: <%=tool.file_code%></h5><br>
+            <h5>Serial: <%=tool.tool_serial%></h5><br>
         </div>
-        <%}%>
+        <div class="row" style="display: flex;">
+            <div class="col-md-4" style="display: flex;justify-content: center; align-items: center;">
+               <div class="image" style="margin-top: 2rem;">
+                <img src="../public/img/ARC.PNG" alt="MUD" style="transform:rotate(90deg); max-width: 900px;">
+            </div>
+            </div>
+            <div class="col-md-8">
+                <div class="connections">
+                    <% for(var i = 0; i < tool.connections.length; i++){ %>
+                    <div class="connection card">
+                        <div class="card-body">
+                            <p>Connection #: <%=tool.connections[i].connection_number %></p>
+                            <p>Description: <%=tool.connections[i].description %></p>
+                            <p>Thread type: <%=tool.connections[i].thread_type %></p>
+                            <p>Operation: <%=tool.connections[i].operation%></p>
+                            <p>Target torque: <%=tool.connections[i].target_torque %></p>
+                            <p>Measured torque: <%=tool.connections[i].measured_torque%></p>
+                            <p>Service on: <%=tool.connections[i].serviced_on%> </p>
+                        </div>
+
+                    </div>
+                    <%}%>
+</div>
+</div>
 </div>
 
 </div>

@@ -14,7 +14,8 @@ const connectionSchema= new Schema({
             type: Boolean,
             default: false
         },
-        serviced_on:{ type: Date}
+        serviced_on:{ type: Date},
+        
 });
 const toolSchema = new Schema({
 
