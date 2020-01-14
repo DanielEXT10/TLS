@@ -110,5 +110,24 @@ router.post('/api', async (req,res)=>{
 
 }); 
 
+router.get('/delete-connection/:id', async (req,res)=>{
+    
+    const {id} = req.params;
+    await Tool.updateOne({}, {$pull:{connections:{_id:id}}});
+    //regresa al URL anterior
+    backURL=req.header('Referer') || '/';
+    res.redirect(backURL);
+    
+});
+
+router.get('/add_connection/:id', async (req,res)=>{
+    const {id} = req.params;
+    const tool = await Tool.findById(id);
+    res.render('new-connection',{
+        tool
+    });
+
+});
+
 
 module.exports = router;
