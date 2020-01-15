@@ -27,18 +27,24 @@
     </div>
     <div class="report">
         <div class="data-job">
-            <h5>Customer: <%=tool.customer%></h5> <br>
-            <h5>Tool Type: <%=tool.tool_type%></h5><br>
-            <h5>FC: <%=tool.file_code%></h5><br>
-            <h5>Serial: <%=tool.tool_serial%></h5><br>
+            <div class="card">
+                <div class="card-body" style="display: flex; flex-flow: wrap; justify-content: space-between">
+                    
+                    <h5>Customer: <%=tool.customer%></h5> <br>
+                    <h5>Tool Type: <%=tool.tool_type%></h5><br>
+                    <h5>FC: <%=tool.file_code%></h5><br>
+                    <h5>Serial: <%=tool.tool_serial%></h5><br>
+                </div>
+            </div>
+
         </div>
         <div class="row" style="display: flex;">
             <div class="col-md-4" style="display: flex;justify-content: center; align-items: center;">
-               <div class="image" style="margin-top: 2rem;">
+                <div class="image" style="margin-top: 2rem;">
 
-                <% if(tool.tool_type == "MUD"){%>
-                <img src="../public/img/A475M.PNG" alt="MUD" style=" max-width: 900px;">
-                <%}%>
+                    <% if(tool.tool_type == "MUD"){%>
+                    <img src="../public/img/A475M.PNG" alt="MUD" style=" max-width: 900px;">
+                    <%}%>
             </div>
             </div>
             <div class="col-md-8">
