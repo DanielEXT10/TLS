@@ -129,5 +129,17 @@ router.get('/add_connection/:id', async (req,res)=>{
 
 });
 
+router.get('/edit-connection/:id', async (req,res)=>{
+    const {id} = req.params;
+    const tool = await Tool.find({"connections._id": id},{connections:{$elemMatch: {_id: id}}});
+    console.log(tool);
+    res.render('edit-connections', {
+        tool
+        });
+});
+
+router.post('/update-connection', (req,res)=>{
+    
+});
 
 module.exports = router;

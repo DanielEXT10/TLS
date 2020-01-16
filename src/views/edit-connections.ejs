@@ -1,0 +1,80 @@
+<% include partials/header%>
+
+<pre>
+    <%= tool%>
+</pre>
+<div class="container" style="margin-top: 2rem;  ">
+        
+    <div  >
+            <div class="card">
+            <div class="card-body" style="display: flex; flex-flow: wrap; justify-content: space-between">
+            <h6>Customer: <%=tool.customer%></h6> <br>
+            <h6>Tool Type: <%=tool.tool_type%></h6><br>
+            <h6>FC: <%=tool.file_code%></h6><br>
+            <h6>Serial: <%=tool.tool_serial%></h6><br>
+        </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="card">
+                
+
+            <div class="card-body">
+                <form action="/update_connection/<%=tool._id%>" method="POST" style="margin: 2rem; margin-bottom: 1rem;">
+                    <h4 style="text-align: center;">New Connection Data</h4>
+                    <div class="form-group">
+                        <label for="">Description:</label>
+                        <input type="text" name="description" class="form-control" value="<%=tool[0].connections[0].description%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Connection #:</label>
+                        <input type="text" name="connection_number" class="form-control" value="<%=tool[0].connections[0].connection_number%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for=""> Connection Type:</label>
+                        <input type="text" name="connection_type" class="form-control" value="<%=tool[0].connections[0].connection_type%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Thread Type:</label>
+                        <select class="form-control" name="thread_type" >
+                            <% if(tool[0].connections[0].thread_type == "RH"){%>
+                                <option selected>RH</option>
+                                <option>LH</option>
+            
+                            <%}%>
+                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Operation:</label>
+                        <select class="form-control" name="operation">
+                            <option>Make</option>
+                            <option>Brake</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Target Torque:</label>
+                        <input type="text" name="target_torque" class="form-control" value="<%=tool[0].connections[0].target_torque%>" required> 
+                    </div>
+                </div>
+                    <div>
+                            <button type="submit" class="btn btn-primary btn-block"> Add Connection</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+       
+
+    </div>
+</div>
+
+<% include partials/footer%>
